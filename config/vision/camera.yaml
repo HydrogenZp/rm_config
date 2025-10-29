@@ -1,15 +1,33 @@
-camera:
+camera_left:
   image_width: 1440
   image_height: 1080
   pixel_format: bgr8
-  camera_info_url: 'file:///home/dynamicx/.ros/camera_info/6mm_hk_camera.yaml'
-  camera_name: hk_camera
+  camera_info_url: 'file:///home/dynamicx/.ros/camera_info/12mm_hk_camera.yaml'
+  camera_name: camera_left
   camera_frame_id: camera_optical_frame
-  camera_sn: 00J90631052
+  frame_id: camera_optical_frame
+  camera_sn: 00DA5133314
   frame_rate: 1000
   exposure_auto: false
-  exposure_value: 1500
-  exposure_value_windmill: 3000
+  exposure_value: 2000
   gamma_selector: 2
   gamma_value: 0.5
-  enable_imu_trigger: true
+  enable_imu_trigger: false
+  sleep_time: 0
+
+camera_right:
+  image_width: 1440
+  image_height: 1080
+  pixel_format: bgr8
+  camera_info_url: 'file:///home/dynamicx/.ros/camera_info/25mm_hk_camera.yaml'
+  camera_name: camera_right
+  camera_frame_id: camera_optical_frame_right
+  frame_id: camera_optical_frame_right
+  camera_sn: 00K01829453
+  frame_rate: 1000
+  exposure_auto: false
+  exposure_value: 2000
+  gamma_selector: 2
+  gamma_value: 0.5
+  enable_imu_trigger: false
+  sleep_time: 5
