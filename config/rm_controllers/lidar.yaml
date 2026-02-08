@@ -1,0 +1,41 @@
+controllers:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 100
+  orientation_controller:
+    type: rm_orientation_controller/Controller
+    publish_rate: 100
+    name: "gimbal_imu"
+    frame_source: "odom"
+    frame_target: "base_link"
+
+  gimbal_controller:
+    type: rm_gimbal_controllers/Controller
+    controllers:
+      yaw:
+        joint: "yaw_joint"
+        pid: { p: 0.054, i: 3.8, d: 0.0, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
+        pid_pos: { p: 6.2, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+        chassis_comp_a: 0
+        chassis_comp_b: 0
+        chassis_comp_c: -0
+        chassis_comp_d: 0
+        k_v: 1.0
+        accel: 28.0
+      pitch:
+        joint: "pitch_joint"
+        pid: { p: 0.05., i: 4.0, d: 0.0, i_clamp_max: 0.22, i_clamp_min: -0.22, antiwindup: true, publish_state: true }
+        pid_pos: { p: 3.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+        k_v: 1.0
+        accel: 40.0
+    chassis_vel:
+      num_data: 30
+      debug: true
+    imu_name: "gimbal_imu"
+    feedforward:
+      gravity: 8.2625
+      enable_gravity_compensation: true
+      mass_origin: [ 0.006,-0.000093,0.026159 ]

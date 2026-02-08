@@ -1,0 +1,14 @@
+can_motors:
+  - can_id: 8
+    can_bus: 0
+    name: "yaw_joint_motor"
+    type: "GM6020"
+  - can_id: 5
+    can_bus: 0
+    name: "pitch_joint_motor"
+    type: "GM6020"
+
+can_imus:
+  - can_bus: 0
+    name: "gimbal_imu"
+    bias: [ 0.00089, -0.002684995 ,-0.001932385 ]
