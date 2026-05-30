@@ -16,10 +16,10 @@ rm_referee:
       - name: "camera"
         config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "camera: " }
       - name: "target_view_angle"
-        config: { type: "rectangle", start_position: [ 840, 440 ], end_position: [ 1060, 620 ], width: 3 }
+        config: { type: "rectangle", start_position: [ 800, 490 ], end_position: [ 1108, 690 ], width: 3 }
         own_camera_name: "camera_left"
       - name: "far_target_view_angle"
-        config: { type: "rectangle", start_position: [ 840, 440 ], end_position: [ 1050, 620], width: 3 }
+        config: { type: "rectangle", start_position: [ 800, 490 ], end_position: [ 1108, 690], width: 3 }
         own_camera_name: "camera_right"
     time_change:
       - name: "drone_towards"
@@ -27,6 +27,23 @@ rm_referee:
         data: { ori_x: 1500, ori_y: 800 }
       - name: "target_distance"
         config: { type: "float_num", start_position: [ 850, 750 ], size: 25, width: 3 ,color: "yellow", delay: 0.2 }
+      - name: "outpost_id"
+        config: { type: "string", start_position: [ 850, 800 ], size: 25, width: 3 , delay: 0.45, title: "outpost_id: " }
+      - name: "shoot_frequency"
+        config: { type: "string", start_position: [ 850, 850 ], size: 25, width: 3 , delay: 0.5, title: "shoot_frequency:"}
+      - name: "target_projection"
+        config:
+          type: "circle"
+          color: "green"
+          width: 2
+          delay: 0.03
+          start_position: [960, 540]
+          radius: 4
+        data:
+          fx: 640.0
+          fy: -640.0
+          cx: 960.0
+          cy: 540.0
       - name: "target_hp"
         config: { type: "int_num", start_position: [ 850, 700 ], width: 3, size: 25, color: "yellow", delay: 0.3 }
         enemy_id: [ 1, 2, 3, 4, 5, 7 ]

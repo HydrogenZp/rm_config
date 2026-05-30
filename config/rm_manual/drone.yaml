@@ -61,19 +61,19 @@ rm_manual:
     speed_16m_per_speed: 22.5
     speed_18m_per_speed: 22.5
     speed_30m_per_speed: 22.5
-    wheel_speed_15: 715
-    wheel_speed_18: 715
-    wheel_speed_30: 715
+    wheel_speed_15: 863
+    wheel_speed_18: 863
+    wheel_speed_30: 863
     extra_wheel_speed_once: 5.0
     heat_limit:
-      low_shoot_frequency: 6
-      high_shoot_frequency: 6
-      burst_shoot_frequency: 6
-      minimal_shoot_frequency: 6
-      safe_shoot_frequency: 6
-      heat_coeff: 8.0
+      low_shoot_frequency: 12
+      high_shoot_frequency: 12
+      burst_shoot_frequency: 12
+      minimal_shoot_frequency: 12
+      safe_shoot_frequency: 8
+      heat_coeff: 6.0
       use_local_heat: true
-      local_heat_protect_threshold: 20
+      local_heat_protect_threshold: 30
       type: "ID1_17MM"
   camera:
     topic: "/camera_name"
@@ -85,7 +85,7 @@ rm_manual:
 #      camera_right_name: "camera_left"
   detection_switch:
     fail_limit: 10
-    service_name: "/Processor_/status_change"
+    service_name: "/Processor/status_change"
   detection_switch_left:
     fail_limit: 10
     service_name: "/Processor_left/status_switch"
