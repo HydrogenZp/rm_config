@@ -130,6 +130,7 @@ controllers:
     twist_angular: 0.5233
     max_odom_vel: 10.0
     timeout: 0.1
+    raw_yaw_feedforward_k: -0.15
     pid_follow: { p: 1.75, i: 0, d: 0.3, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     pid_block_error: { p: 0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
@@ -141,7 +142,7 @@ controllers:
     #    pid_left_leg: { p: 800.0, i: 50., d: 60, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
     #    pid_right_leg: { p: 800.0, i: 50., d: 60, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
     pid_theta_diff: { p: 400.0, i: 0.0, d: 3.5, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_roll: { p: 1500.0, i: 0, d: 50., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
+    pid_roll: { p: 1500.0, i: 0, d: 35., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
     pid_yaw_pos: { p: 0.0, i: 0.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
     pid_yaw_vel: { p: 0.7, i: 4.0, d: 0., i_clamp_max: 1.5, i_clamp_min: -1.5, antiwindup: true, publish_state: true }
     pid_left_leg_theta: { p: 45.0, i: 0., d: 5., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
@@ -158,11 +159,11 @@ controllers:
     spring_s2: 0.0486
     spring_s3: 0.20
     spring_alpha_s: 0.2448
-    gravity_force: 110
-    spring_force: 250
+    #    gravity_force: 110
+    #    spring_force: 250
     # use in gazebo
-    #    gravity_force: 70
-    #    spring_force: 0
+    gravity_force: 70
+    spring_force: 0
     default_leg_length: 0.12
 
     unstick_threshold: 5
@@ -220,8 +221,8 @@ controllers:
     #    r: [ 375, 15 ]
 
     # 05-17
-    q: [ 35000.0, 1, 8000.0, 500, 90000.0, 1 ]
-    r: [ 250, 7.5 ]
+    q: [ 35000.0, 1, 12500.0, 500, 90000.0, 1 ]
+    r: [ 450, 7.5 ]
 
     x_bias: 0.05
     theta_bias: 0.13
@@ -230,7 +231,10 @@ controllers:
     # not tested 6-8
     #    raw_pitch_bias: 0.13
     raw_pitch_bias: 0.
-    raw_theta_bias: 0.
+    raw_theta_bias: 0.13
+
+    # use in gazebo
+    #    raw_theta_bias: 0.0
 
     # under_lower_threshold: -M_PI / 2 + 0.7
     under_lower_threshold: -0.8708
@@ -252,6 +256,9 @@ controllers:
     # upstair_des_theta: M_PI_2 - 0.6
     arrive_time_threshold: 1.5
     jumpOverTime: 2.0
-    jump_up_force: 200
-    off_ground_force: 175
-    down5cmStairPitchThreshold: 0.2
+    #    jump_up_force: 225
+    #    off_ground_force: 150
+    jump_up_force: 210
+    off_ground_force: 90
+    down5cmStairPitchThreshold: 0.1
+    down5cmStairThetaThreshold: 0.2
