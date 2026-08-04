@@ -168,8 +168,12 @@ controllers:
 
     unstick_threshold: 5
     # VMC config
+    vmc_type: five_link
     l1: 0.21
     l2: 0.248
+    l3: 0.248
+    l4: 0.21
+    l5: 0.0
 
     # LQR model config
     L_weight: 0.53
